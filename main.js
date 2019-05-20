@@ -22,3 +22,4 @@ field.addEventListener('click', function(event) {
         ball.style.left = ballCoords.left + 'px';
         ball.style.top = ballCoords.top + 'px';
     });
+
