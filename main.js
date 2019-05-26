@@ -1,7 +1,7 @@
 const field = document.querySelector('#field');
 const ball = document.querySelector('#ball');
 
-field.addEventListener('click', function(event) {
+field.addEventListener('click', (event) => {
         const fieldCoords = field.getBoundingClientRect();
         const fieldInnerCoords = {
             top: fieldCoords.top + field.clientTop,
@@ -11,15 +11,17 @@ field.addEventListener('click', function(event) {
             top: event.clientY - fieldInnerCoords.top - ball.clientHeight / 2,
             left: event.clientX - fieldInnerCoords.left - ball.clientWidth / 2
         };
-        if (ballCoords.top < 0) ballCoords.top = 0;
-        if (ballCoords.left < 0) ballCoords.left = 0;
-        if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-            ballCoords.left = field.clientWidth - ball.clientWidth;
+        let top = ballCoords['top'];
+        let left = ballCoords['left'];
+        if (top < 0) top = 0;
+        if (left < 0) left = 0;
+        if (left + ball.clientWidth > field.clientWidth) {
+            left = field.clientWidth - ball.clientWidth;
         }
-        if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-            ballCoords.top = field.clientHeight - ball.clientHeight;
+        if (top + ball.clientHeight > field.clientHeight) {
+            top = field.clientHeight - ball.clientHeight;
         }
-        ball.style.left = ballCoords.left + 'px';
-        ball.style.top = ballCoords.top + 'px';
+        ball.style.left = `${left}px`;
+        ball.style.top = `${top}px`;
     });
 
