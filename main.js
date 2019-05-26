@@ -24,4 +24,3 @@ field.addEventListener('click', (event) => {
         ball.style.left = `${left}px`;
         ball.style.top = `${top}px`;
     });
-
